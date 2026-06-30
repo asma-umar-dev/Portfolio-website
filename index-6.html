@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asma Umar | Web Developer · Designer · Islamic Scholar</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{
+  --teal:#0D5C6E; --teal2:#1A8BA3; --aqua:#00D4FF;
+  --gold:#F4A825; --gold2:#FFD166; --purple:#7B5EA7;
+  --green:#06D6A0; --dark:#071E26; --dark2:#0A2E38;
+  --white:#FAFFFE; --soft:#EBF8FF;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--white);color:var(--dark);overflow-x:hidden}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--teal),var(--aqua));border-radius:3px}
+
+/* ══ NAV ══ */
+nav{
+  position:fixed;top:0;width:100%;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 5%;
+  background:rgba(7,30,38,0.96);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(0,212,255,0.15);
+  box-shadow:0 4px 30px rgba(0,212,255,0.08);
+}
+.nav-logo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nav-logo img{width:40px;height:40px;border-radius:50%;border:2px solid rgba(0,212,255,0.4);object-fit:cover}
+.nav-logo-text{font-size:1rem;font-weight:700;color:#fff}
+.nav-logo-text span{color:var(--aqua)}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{text-decoration:none;color:rgba(255,255,255,0.75);font-size:.83rem;font-weight:500;transition:color .25s;position:relative;padding-bottom:3px}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--aqua);transition:width .3s;border-radius:1px}
+.nav-links a:hover{color:var(--aqua)}
+.nav-links a:hover::after{width:100%}
+.nav-hire{background:linear-gradient(135deg,var(--gold),#e8960f)!important;color:#fff!important;padding:7px 18px!important;border-radius:25px!important;font-weight:600!important}
+.nav-hire::after{display:none!important}
+
+/* ══ HERO ══ */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:90px 5% 50px;
+  background:linear-gradient(160deg,#071E26 0%,#0A2E38 45%,#0D3D4F 75%,#071E26 100%);
+  position:relative;overflow:hidden;text-align:center;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(0,212,255,0.1) 1px,transparent 1px);
+  background-size:32px 32px;pointer-events:none;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 30%,rgba(0,212,255,0.07) 0%,transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 80%,rgba(123,94,167,0.08) 0%,transparent 60%);
+}
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:1100px;margin:0 auto;width:100%;
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:3rem;
+  align-items:center;
+}
+.hero-text{
+  display:flex;flex-direction:column;
+  align-items:flex-start;
+  text-align:left;
+  width:100%;
+}
+
+/* Bismillah */
+.bismillah{
+  font-family:'Amiri',serif;
+  font-size:clamp(1.4rem,4vw,2rem);
+  color:var(--gold2);
+  letter-spacing:2px;
+  margin-bottom:1.2rem;
+  text-shadow:0 0 20px rgba(255,209,102,0.3);
+  animation:fadeDown .8s ease both;
+  text-align:left;
+}
+
+/* Name */
+.hero-name{
+  font-size:clamp(2.5rem,7vw,4rem);
+  font-weight:800;color:#fff;
+  line-height:1.1;margin-bottom:.8rem;
+  animation:fadeDown .9s ease .1s both;
+}
+.hero-name .hi{color:rgba(255,255,255,0.7);font-weight:400;font-size:clamp(1rem,3vw,1.4rem);display:block;margin-bottom:.3rem}
+.hero-name .name-asma{color:#fff}
+.hero-name .name-umar{
+  background:linear-gradient(90deg,var(--aqua),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+
+/* Typing text */
+.typing-wrap{
+  font-size:clamp(1rem,2.5vw,1.25rem);
+  color:var(--aqua);font-weight:600;
+  margin-bottom:1.5rem;min-height:2rem;
+  display:flex;align-items:center;justify-content:flex-start;gap:.4rem;
+  animation:fadeDown 1s ease .2s both;
+}
+.typing-prefix{color:rgba(255,255,255,0.5);font-weight:400}
+.typing-cursor{
+  display:inline-block;width:2px;height:1.2em;
+  background:var(--aqua);margin-left:2px;
+  animation:blink .7s step-end infinite;vertical-align:middle;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* About text in hero */
+.hero-about{
+  font-size:clamp(.88rem,2vw,1rem);
+  color:rgba(255,255,255,0.72);
+  line-height:1.85;max-width:500px;
+  margin-bottom:1.8rem;
+  animation:fadeDown 1s ease .3s both;
+  text-align:left;
+}
+.hero-about strong{color:var(--aqua)}
+
+/* Buttons */
+.hero-btns{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  justify-content:flex-start;margin-bottom:2.5rem;
+  animation:fadeDown 1s ease .4s both;
+}
+.btn-glow{
+  background:linear-gradient(135deg,var(--teal2),var(--aqua));
+  color:var(--dark);font-weight:700;font-size:.88rem;
+  padding:12px 28px;border-radius:30px;text-decoration:none;
+  box-shadow:0 4px 20px rgba(0,212,255,0.35);
+  transition:transform .2s,box-shadow .2s;
+}
+.btn-glow:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,212,255,0.5)}
+.btn-ghost{
+  border:1.5px solid rgba(255,255,255,0.25);color:#fff;
+  font-weight:500;font-size:.88rem;
+  padding:11px 26px;border-radius:30px;text-decoration:none;
+  transition:all .25s;
+}
+.btn-ghost:hover{border-color:var(--aqua);color:var(--aqua)}
+
+/* Logo at bottom of hero */
+
+
+.logo-ring::before{
+  content:'';position:absolute;inset:-3px;border-radius:50%;
+  background:conic-gradient(var(--aqua) 0%,var(--gold) 25%,var(--purple) 50%,var(--aqua) 75%,var(--gold) 100%);
+  animation:spin 6s linear infinite;filter:blur(1.5px);
+}
+.logo-ring::after{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--dark2)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+
+
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ══ STATS BAR ══ */
+.stats-bar{
+  background:var(--dark2);padding:18px 5%;
+  border-bottom:1px solid rgba(0,212,255,0.1);
+}
+.stats-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:1rem}
+.stat-item{text-align:center}
+.stat-num{font-size:1.7rem;font-weight:800;background:linear-gradient(90deg,var(--aqua),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block}
+.stat-lbl{font-size:.72rem;color:rgba(255,255,255,0.5);margin-top:.1rem}
+
+/* ══ SECTIONS ══ */
+section{padding:80px 5%}
+.section-tag{text-align:center;font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--aqua);margin-bottom:.5rem}
+.section-h2{text-align:center;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:var(--dark);margin-bottom:.7rem}
+.section-line{width:50px;height:3px;margin:0 auto 3rem;border-radius:2px;background:linear-gradient(90deg,var(--teal2),var(--aqua))}
+.max-w{max-width:1100px;margin:0 auto}
+
+/* ══ SKILLS ══ */
+#skills{background:linear-gradient(160deg,#f0fafa 0%,#e8f4f8 100%)}
+.skills-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem}
+.skill-card{
+  border-radius:22px;padding:2rem 1.8rem;
+  position:relative;overflow:hidden;
+  text-align:center;
+  transition:transform .3s,box-shadow .3s;
+}
+.skill-card .sk-icon{margin:0 auto .8rem}
+.skill-card:hover{transform:translateY(-8px)}
+
+/* Card 1 - Technical: Deep teal to aqua */
+.skill-card:nth-child(1){
+  background:linear-gradient(135deg,#071E26 0%,#0D5C6E 50%,#0A3D4F 100%);
+  border:1.5px solid rgba(0,212,255,0.25);
+  box-shadow:0 4px 30px rgba(0,212,255,0.15),0 0 60px rgba(0,212,255,0.05);
+}
+.skill-card:nth-child(1)::before{
+  content:'';position:absolute;top:-40px;right:-40px;
+  width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,212,255,0.15),transparent 70%);
+}
+.skill-card:nth-child(1):hover{
+  box-shadow:0 12px 50px rgba(0,212,255,0.3),0 0 80px rgba(0,212,255,0.1);
+}
+.skill-card:nth-child(1) h3{color:#fff}
+.skill-card:nth-child(1) .tag{
+  background:rgba(0,212,255,0.1);
+  color:rgba(255,255,255,0.9);
+  border-color:rgba(0,212,255,0.2);
+}
+.skill-card:nth-child(1) .tag:hover{
+  background:var(--aqua);color:var(--dark);border-color:var(--aqua);
+}
+
+/* Card 2 - Islamic: Deep purple-gold */
+.skill-card:nth-child(2){
+  background:linear-gradient(135deg,#1a0a2e 0%,#2d1055 50%,#1a0a2e 100%);
+  border:1.5px solid rgba(244,168,37,0.3);
+  box-shadow:0 4px 30px rgba(244,168,37,0.12),0 0 60px rgba(123,94,167,0.08);
+}
+.skill-card:nth-child(2)::before{
+  content:'';position:absolute;top:-40px;right:-40px;
+  width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle,rgba(244,168,37,0.2),transparent 70%);
+}
+.skill-card:nth-child(2):hover{
+  box-shadow:0 12px 50px rgba(244,168,37,0.25),0 0 80px rgba(123,94,167,0.15);
+}
+.skill-card:nth-child(2) h3{color:#fff}
+.skill-card:nth-child(2) .tag{
+  background:rgba(244,168,37,0.1);
+  color:rgba(255,255,255,0.9);
+  border-color:rgba(244,168,37,0.25);
+}
+.skill-card:nth-child(2) .tag:hover{
+  background:var(--gold);color:var(--dark);border-color:var(--gold);
+}
+.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3.5px;border-radius:20px 20px 0 0}
+.skill-card:nth-child(1)::before{background:linear-gradient(90deg,var(--teal2),var(--aqua))}
+.skill-card:nth-child(2)::before{background:linear-gradient(90deg,var(--gold),#c8860b)}
+.skill-card:hover{transform:translateY(-7px);box-shadow:0 15px 40px rgba(13,92,110,0.14)}
+.sk-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:.8rem}
+.ic-blue{background:rgba(0,212,255,0.1);color:var(--teal)}
+.ic-gold{background:rgba(244,168,37,0.1);color:var(--gold)}
+.skill-card h3{font-size:1rem;color:var(--dark);margin-bottom:1rem;font-weight:700}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+.tag{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.75rem;font-weight:600;
+  padding:7px 14px;border-radius:25px;
+  background:var(--soft);color:var(--dark2);
+  border:1.5px solid rgba(13,92,110,0.12);
+  cursor:default;white-space:nowrap;
+  transition:transform .2s,box-shadow .2s,background .2s,color .2s;
+}
+.tag:hover{
+  background:var(--teal2);color:#fff;
+  border-color:var(--teal2);
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 6px 18px rgba(13,92,110,0.2);
+}
+.tag img{flex-shrink:0}
+
+/* floating keyframes — 14 different timings */
+@keyframes tagFloat{
+  0%,100%{transform:translateY(0px)}
+  50%{transform:translateY(-6px)}
+}
+.tag:nth-child(1){animation:tagFloat 2.8s ease-in-out infinite}
+.tag:nth-child(2){animation:tagFloat 3.2s ease-in-out infinite .3s}
+.tag:nth-child(3){animation:tagFloat 2.5s ease-in-out infinite .6s}
+.tag:nth-child(4){animation:tagFloat 3.5s ease-in-out infinite .2s}
+.tag:nth-child(5){animation:tagFloat 2.9s ease-in-out infinite .8s}
+.tag:nth-child(6){animation:tagFloat 3.1s ease-in-out infinite .4s}
+.tag:nth-child(7){animation:tagFloat 2.7s ease-in-out infinite 1s}
+.tag:nth-child(8){animation:tagFloat 3.3s ease-in-out infinite .1s}
+.tag:nth-child(9){animation:tagFloat 2.6s ease-in-out infinite .7s}
+.tag:nth-child(10){animation:tagFloat 3.0s ease-in-out infinite .5s}
+.tag:nth-child(11){animation:tagFloat 2.8s ease-in-out infinite .9s}
+.tag:nth-child(12){animation:tagFloat 3.4s ease-in-out infinite .3s}
+.tag:nth-child(13){animation:tagFloat 2.5s ease-in-out infinite .6s}
+.tag:nth-child(14){animation:tagFloat 3.2s ease-in-out infinite .2s}
+
+/* ══ PROJECTS ══ */
+#projects{
+  background:linear-gradient(135deg,#071E26 0%,#0A2E38 40%,#0D3D4F 70%,#071E26 100%);
+  position:relative;
+}
+#projects::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(0,212,255,0.07) 1px,transparent 1px);
+  background-size:32px 32px;pointer-events:none;
+}
+#projects .section-tag{color:var(--aqua)}
+#projects .section-h2{color:#fff}
+#projects .section-line{background:linear-gradient(90deg,var(--aqua),var(--gold))}
+#projects .proj-cat{color:var(--aqua)}
+#projects .proj-body h3{color:#fff}
+#projects .proj-body p{color:rgba(255,255,255,0.7)}
+#projects .proj-card{
+  border-color:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+}
+#projects .pl-gh{border-color:rgba(255,255,255,0.4);color:#fff}
+#projects .pl-gh:hover{background:#fff;color:var(--dark)}
+
+/* Each card unique color - class based */
+.card-nexus{background:linear-gradient(135deg,#0D1B4B,#1A2F8A)!important;border-color:rgba(100,130,255,0.4)!important}
+.card-nexus:hover{box-shadow:0 18px 50px rgba(100,130,255,0.35)!important}
+
+.card-khulafa{background:linear-gradient(135deg,#1a0a2e,#4B1E8A)!important;border-color:rgba(180,100,255,0.4)!important}
+.card-khulafa:hover{box-shadow:0 18px 50px rgba(180,100,255,0.35)!important}
+
+.card-weather{background:linear-gradient(135deg,#0D3B2E,#0E7A5A)!important;border-color:rgba(0,212,160,0.4)!important}
+.card-weather:hover{box-shadow:0 18px 50px rgba(0,212,160,0.35)!important}
+
+.card-clock{background:linear-gradient(135deg,#2B1200,#8A4400)!important;border-color:rgba(255,160,50,0.4)!important}
+.card-clock:hover{box-shadow:0 18px 50px rgba(255,160,50,0.35)!important}
+
+.card-calc{background:linear-gradient(135deg,#0A2040,#0D5C9E)!important;border-color:rgba(0,180,255,0.4)!important}
+.card-calc:hover{box-shadow:0 18px 50px rgba(0,180,255,0.35)!important}
+
+.card-quote{background:linear-gradient(135deg,#2E0A3A,#7B1FA2)!important;border-color:rgba(220,100,255,0.4)!important}
+.card-quote:hover{box-shadow:0 18px 50px rgba(220,100,255,0.35)!important}
+
+.card-study{background:linear-gradient(135deg,#071E26,#0D5C6E)!important;border-color:rgba(0,212,255,0.4)!important}
+.card-study:hover{box-shadow:0 18px 50px rgba(0,212,255,0.35)!important}
+
+.card-career{background:linear-gradient(135deg,#3B0A0A,#8A1A1A)!important;border-color:rgba(255,80,80,0.4)!important}
+.card-career:hover{box-shadow:0 18px 50px rgba(255,80,80,0.35)!important}
+
+.card-luxe{background:linear-gradient(135deg,#2A0A1A,#7B1A4A)!important;border-color:rgba(255,100,160,0.4)!important}
+.card-luxe:hover{box-shadow:0 18px 50px rgba(255,100,160,0.35)!important}
+
+.card-todo{background:linear-gradient(135deg,#0A1F0A,#1A5C1A)!important;border-color:rgba(80,200,80,0.4)!important}
+.card-todo:hover{box-shadow:0 18px 50px rgba(80,200,80,0.35)!important}
+
+/* All project card text white */
+.proj-card .proj-cat{color:var(--aqua)!important}
+.proj-card .proj-body h3{color:#fff!important}
+.proj-card .proj-body p{color:rgba(255,255,255,0.75)!important}
+.proj-card .pl-gh{border-color:rgba(255,255,255,0.4)!important;color:#fff!important}
+.proj-card .pl-gh:hover{background:#fff!important;color:var(--dark)!important}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+.proj-card{border-radius:22px;overflow:hidden;border:1.5px solid rgba(13,92,110,0.1);background:#fff;box-shadow:0 3px 20px rgba(13,92,110,0.07);transition:transform .3s,box-shadow .3s}
+.proj-card:hover{transform:translateY(-8px);box-shadow:0 18px 45px rgba(13,92,110,0.15)}
+.proj-thumb{
+  height:200px;overflow:hidden;position:relative;
+}
+.proj-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .4s}
+.proj-card:hover .proj-thumb img{transform:scale(1.05)}
+.proj-liveTag{position:absolute;top:12px;right:12px;background:rgba(6,214,160,0.15);border:1px solid var(--green);color:var(--green);font-size:.68rem;font-weight:700;padding:4px 11px;border-radius:10px;letter-spacing:1px}
+.proj-body{padding:1.5rem}
+.proj-cat{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal2);margin-bottom:.4rem}
+.proj-body h3{font-size:1.1rem;color:var(--dark);margin-bottom:.6rem;font-weight:700}
+.proj-body p{font-size:.84rem;color:#4a6b74;line-height:1.7;margin-bottom:1.2rem}
+.proj-links{display:flex;gap:.7rem}
+.pl{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:600;text-decoration:none;padding:7px 16px;border-radius:20px;transition:all .2s}
+.pl-demo{background:var(--teal2);color:#fff}
+.pl-demo:hover{background:var(--teal)}
+.pl-gh{border:1.5px solid var(--dark2);color:var(--dark2)}
+.pl-gh:hover{background:var(--dark2);color:#fff}
+
+/* ══ CONTACT ══ */
+#contact{background:var(--white)}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:start;max-width:600px;margin:0 auto}
+.contact-left h3{font-size:1.3rem;color:var(--dark);margin-bottom:.8rem;font-weight:700}
+.contact-left p{font-size:.9rem;color:#4a6b74;line-height:1.75;margin-bottom:1.5rem}
+.cinfo{display:flex;align-items:center;gap:.8rem;margin-bottom:.9rem;font-size:.88rem;color:var(--dark);font-weight:500}
+.cinfo i{width:22px;color:var(--teal2);font-size:1rem}
+.cinfo a{color:var(--dark);text-decoration:none;transition:color .2s}
+.cinfo a:hover{color:var(--teal2)}
+.socials{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem}
+.soc{display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;font-size:.8rem;font-weight:600;padding:9px 16px;border-radius:25px;color:#fff;transition:transform .2s,box-shadow .2s}
+.soc:hover{transform:translateY(-4px) scale(1.08);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+@keyframes socFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.soc:nth-child(1){animation:socFloat 2.8s ease-in-out infinite}
+.soc:nth-child(2){animation:socFloat 3.2s ease-in-out infinite .4s}
+.soc:nth-child(3){animation:socFloat 2.6s ease-in-out infinite .8s}
+.soc:nth-child(4){animation:socFloat 3.0s ease-in-out infinite .2s}
+.soc:nth-child(5){animation:socFloat 2.9s ease-in-out infinite .6s}
+.soc:nth-child(6){animation:socFloat 3.1s ease-in-out infinite 1s}
+.soc:hover{animation-play-state:paused}
+.s-li{background:#0077B5}.s-gh{background:#24292e}
+.s-ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.s-fb{background:#1877F2}.s-wa{background:#25D366}.s-fv{background:#1DBF73}
+.hire-card{background:var(--dark2);color:#fff;border-radius:24px;padding:2.5rem;border:1px solid rgba(0,212,255,0.15);box-shadow:0 8px 40px rgba(7,30,38,0.2)}
+.avail-pill-lg{display:inline-flex;align-items:center;gap:.4rem;background:rgba(6,214,160,0.1);border:1px solid rgba(6,214,160,0.3);color:var(--green);font-size:.78rem;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:1.3rem}
+.hire-card h4{font-size:1.1rem;font-weight:700;margin-bottom:1.1rem;color:#fff}
+.svc{display:flex;align-items:center;gap:.6rem;font-size:.88rem;color:rgba(255,255,255,0.85);padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+.svc:last-of-type{border:none}
+.svc-arrow{color:var(--aqua);font-size:.75rem;flex-shrink:0;font-style:normal}
+.cta-btn{display:block;text-align:center;margin-top:1.5rem;background:linear-gradient(135deg,var(--gold),#e8960f);color:#fff;padding:14px;border-radius:30px;font-weight:700;text-decoration:none;font-size:.92rem;box-shadow:0 4px 18px rgba(244,168,37,0.4);transition:transform .2s,box-shadow .2s}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(244,168,37,0.55)}
+
+/* ══ CONTACT FORM ══ */
+.hire-info h4{color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:1rem;}
+.hire-info{
+  margin-top:1.5rem;
+  background:#0A2E38;
+  border-radius:20px;
+  padding:1.8rem;
+  border:1px solid rgba(0,212,255,0.15);
+  box-shadow:0 8px 40px rgba(7,30,38,0.2);
+}
+.avail-pill-lg{display:inline-flex;align-items:center;gap:.4rem;background:rgba(6,214,160,0.12);border:1.5px solid rgba(6,214,160,0.4);color:#06D6A0;font-size:.78rem;font-weight:700;padding:6px 16px;border-radius:20px;margin-bottom:1rem}
+.contact-form-wrap{
+  background:var(--dark2);border-radius:24px;
+  overflow:hidden;
+  border:1px solid rgba(0,212,255,0.15);
+  box-shadow:0 8px 40px rgba(7,30,38,0.25);
+}
+.form-header{
+  background:linear-gradient(135deg,rgba(0,212,255,0.12),rgba(123,94,167,0.12));
+  padding:1.8rem 2rem 1.4rem;
+  border-bottom:1px solid rgba(0,212,255,0.1);
+  text-align:center;
+}
+.form-icon{font-size:2rem;color:var(--aqua);display:block;margin-bottom:.6rem}
+.form-header h4{color:#fff;font-size:1.15rem;font-weight:700;margin-bottom:.3rem}
+.form-header p{color:rgba(255,255,255,0.5);font-size:.82rem}
+.form-body{padding:1.8rem 2rem}
+.form-group{margin-bottom:1.3rem}
+.form-group label{display:block;font-size:.82rem;font-weight:600;color:rgba(255,255,255,0.85);margin-bottom:.5rem;letter-spacing:.3px}
+.form-group input,
+.form-group textarea{
+  width:100%;background:rgba(255,255,255,0.06);
+  border:1.5px solid rgba(255,255,255,0.1);
+  border-radius:12px;padding:12px 16px;
+  color:#fff;font-size:.88rem;font-family:'Poppins',sans-serif;
+  transition:border-color .25s,background .25s;
+  resize:none;outline:none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder{color:rgba(255,255,255,0.25)}
+.form-group input:focus,
+.form-group textarea:focus{
+  border-color:var(--aqua);
+  background:rgba(0,212,255,0.06);
+  box-shadow:0 0 0 3px rgba(0,212,255,0.1);
+}
+.send-btn{
+  width:100%;padding:14px;border:none;border-radius:14px;
+  background:linear-gradient(135deg,var(--teal2),var(--aqua));
+  color:var(--dark);font-size:.95rem;font-weight:700;
+  font-family:'Poppins',sans-serif;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:.6rem;
+  box-shadow:0 4px 18px rgba(0,212,255,0.3);
+  transition:transform .2s,box-shadow .2s;
+}
+.send-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,212,255,0.45)}
+.send-btn:active{transform:translateY(0)}
+.form-status{
+  margin-top:1rem;padding:12px 16px;border-radius:10px;
+  font-size:.85rem;font-weight:600;text-align:center;
+}
+.form-status.success{background:rgba(6,214,160,0.15);border:1px solid var(--green);color:var(--green)}
+.form-status.error{background:rgba(255,100,100,0.1);border:1px solid rgba(255,100,100,0.4);color:#ff8080}
+
+/* ══ CERTIFICATIONS ══ */
+#certifications{background:linear-gradient(160deg,#f0fafa 0%,var(--white) 100%)}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+.cert-card{
+  border-radius:20px;overflow:hidden;
+  border:1.5px solid rgba(13,92,110,0.1);
+  box-shadow:0 3px 20px rgba(13,92,110,0.07);
+  transition:transform .3s,box-shadow .3s;
+  background:linear-gradient(135deg,#0A2E38 0%,#0D3D4F 100%);
+  color:#fff;
+}
+.cert-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(13,92,110,0.18)}
+.cert-img-wrap{
+  height:200px;overflow:hidden;position:relative;
+  background:#071E26;
+}
+.cert-img-wrap img{
+  width:100%;height:100%;object-fit:cover;object-position:top;
+  transition:transform .4s;
+}
+.cert-card:hover .cert-img-wrap img{transform:scale(1.05)}
+.cert-badge{
+  position:absolute;top:12px;left:12px;
+  background:linear-gradient(135deg,var(--gold),#e8960f);
+  color:#fff;font-size:.68rem;font-weight:700;
+  padding:4px 11px;border-radius:10px;letter-spacing:1px;
+}
+.cert-body{padding:1.4rem 1.5rem}
+.cert-org{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--aqua);margin-bottom:.4rem}
+.cert-body h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;color:#fff}
+.cert-body p{font-size:.82rem;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:1rem}
+.cert-link{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.78rem;font-weight:600;text-decoration:none;
+  padding:7px 16px;border-radius:20px;transition:all .2s;
+  background:rgba(0,212,255,0.15);color:var(--aqua);
+  border:1px solid rgba(0,212,255,0.3);
+}
+.cert-link:hover{background:var(--aqua);color:var(--dark)}
+.cert-meta{
+  display:flex;align-items:center;gap:.5rem;
+  font-size:.75rem;color:rgba(255,255,255,0.45);
+  margin-bottom:.8rem;
+}
+.cert-meta i{color:var(--gold);font-size:.8rem}
+
+/* ══ MARQUEE ══ */
+.marquee-wrap{
+  overflow:hidden;
+  padding:1rem 0 2rem;
+  -webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+.marquee-track{
+  display:flex;gap:1.5rem;
+  animation:marqueeScroll 20s linear infinite;
+  width:max-content;
+}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marqueeScroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+.mq-card{
+  flex-shrink:0;width:min(320px, 80vw);
+  border-radius:18px;overflow:hidden;
+  background:#fff;
+  border:1.5px solid rgba(13,92,110,0.1);
+  box-shadow:0 4px 20px rgba(13,92,110,0.08);
+  text-decoration:none;color:var(--dark);
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+  display:block;
+}
+.mq-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 35px rgba(13,92,110,0.15);
+  border-color:var(--teal2);
+}
+.mq-img{height:180px;overflow:hidden}
+.mq-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.mq-card:hover .mq-img img{transform:scale(1.06)}
+.mq-body{padding:1.2rem 1.3rem}
+.mq-tag{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-size:.68rem;font-weight:700;letter-spacing:.8px;
+  padding:3px 10px;border-radius:12px;
+  background:rgba(0,119,181,0.1);color:#0077B5;
+  margin-bottom:.6rem;text-transform:uppercase;
+}
+.mq-body h4{font-size:.92rem;font-weight:700;color:var(--dark);margin-bottom:.4rem;line-height:1.4}
+.mq-body p{font-size:.78rem;color:#4a6b74;line-height:1.55;margin-bottom:.8rem}
+.mq-btn{
+  font-size:.75rem;font-weight:700;color:var(--teal2);
+  display:inline-flex;align-items:center;gap:.3rem;
+}
+
+/* ══ BLOG ══ */
+#blog{background:var(--dark2)}
+#blog .section-h2{color:#fff}
+#blog .section-tag{color:var(--aqua)}
+#blog .section-line{background:linear-gradient(90deg,var(--aqua),var(--gold))}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+.blog-card{
+  border-radius:20px;overflow:hidden;
+  background:rgba(255,255,255,0.04);
+  border:1.5px solid rgba(0,212,255,0.12);
+  box-shadow:0 4px 24px rgba(0,0,0,0.2);
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+}
+.blog-card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 16px 40px rgba(0,0,0,0.35);
+  border-color:rgba(0,212,255,0.3);
+}
+.blog-thumb{height:210px;overflow:hidden;position:relative}
+.blog-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.blog-card:hover .blog-thumb img{transform:scale(1.05)}
+.blog-platform{
+  position:absolute;top:12px;left:12px;
+  background:#0077B5;color:#fff;
+  font-size:.68rem;font-weight:700;
+  padding:4px 11px;border-radius:10px;
+  letter-spacing:1px;
+  display:flex;align-items:center;gap:.4rem;
+}
+.blog-body{padding:1.4rem 1.5rem}
+.blog-cat{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--aqua);margin-bottom:.5rem}
+.blog-body h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.6rem;line-height:1.45}
+.blog-body p{font-size:.82rem;color:rgba(255,255,255,0.6);line-height:1.65;margin-bottom:1.1rem}
+.blog-read{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.78rem;font-weight:600;text-decoration:none;
+  padding:7px 16px;border-radius:20px;transition:all .2s;
+  background:rgba(0,119,181,0.15);color:#0077B5;
+  border:1px solid rgba(0,119,181,0.35);
+}
+.blog-read:hover{background:#0077B5;color:#fff}
+
+/* ══ FOOTER ══ */
+footer{background:var(--dark);color:rgba(255,255,255,.55);text-align:center;padding:2rem 5%;border-top:1px solid rgba(0,212,255,0.08)}
+.footer-logo{display:flex;align-items:center;justify-content:center;gap:.7rem;margin-bottom:1rem}
+.footer-logo img{width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(0,212,255,0.3)}
+.footer-logo span{color:#fff;font-weight:600}
+.footer-arabic{font-family:'Amiri',serif;font-size:1.2rem;color:var(--gold2);margin-bottom:.5rem}
+footer a{color:var(--aqua);text-decoration:none}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .contact-grid{grid-template-columns:1fr}
+  .logo-ring{width:220px;height:220px}
+  .logo-img{width:196px;height:196px}
+  .hero-inner{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    text-align:center !important;
+    gap:2rem !important;
+  }
+  .hero-text{
+    order:2 !important;
+    align-items:center !important;
+    text-align:center !important;
+  }
+  .hero-logo{order:1 !important}
+  .bismillah,.hero-about{text-align:center !important}
+  .typing-wrap,.hero-btns{justify-content:center !important}
+}
+
+/* ══ HERO LOGO CLEAN ══ */
+.hero-logo {
+  animation: fadeUp 1s ease .5s both;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.logo-ring {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.logo-ring::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(#00D4FF 0%, #F4A825 25%, #7B5EA7 50%, #00D4FF 75%, #F4A825 100%);
+  animation: spin 6s linear infinite;
+  filter: blur(1.5px);
+}
+.logo-ring::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: #0A2E38;
+}
+.logo-img {
+  position: relative;
+  z-index: 2;
+  width: 232px;
+  height: 232px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  background: #071E26;
+}
+.avail-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0A3D3D;
+  border: 2px solid rgba(6,214,160,0.6);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 30px;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.avail-dot {
+  width: 8px;
+  height: 8px;
+  background: #06D6A0;
+  border-radius: 50%;
+  animation: pulse 1.8s infinite;
+  flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="logo.jpg" alt="Asma Umar">
+    <span class="nav-logo-text">Asma <span>Umar</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact" class="nav-hire">✨ Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+
+    <!-- 1. Bismillah -->
+    <p class="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+
+    <!-- 2. I'm Asma Umar -->
+    <h1 class="hero-name">
+      <span class="hi">Assalam-o-Alaikum, I'm</span>
+      <span class="name-asma">Asma </span><span class="name-umar">Umar</span>
+    </h1>
+
+    <!-- 3. Typing text -->
+    <div class="typing-wrap">
+      <span class="typing-prefix">I am a</span>
+      <span id="typed-text"></span>
+      <span class="typing-cursor"></span>
+    </div>
+
+    <!-- 4. About (no heading) -->
+    <p class="hero-about">
+      Passionate about building meaningful digital experiences while combining
+      <strong>Islamic values</strong> with modern technology and creativity.
+      I spent <strong>6 years in Dars-e-Nizami</strong> at Jamia and then pursued
+      Web Development &amp; Graphic Design at <strong>As-Sa'adah Institute</strong>.
+      Open to freelance work and collaboration — let's build something great together! 🚀
+    </p>
+
+    <!-- Buttons -->
+    <div class="hero-btns">
+      <a href="javascript:void(0)" class="btn-glow" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'});return false;">🚀 View My Work</a>
+      <a href="javascript:void(0)" class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Let's Connect →</a>
+    </div>
+
+    <!-- 5. Logo at bottom -->
+    </div>
+
+    <div class="hero-logo">
+      <div class="logo-ring">
+        <img src="logo.jpg" alt="Asma Umar Logo" class="logo-img">
+      </div>
+      <div class="avail-pill">
+        <span class="avail-dot"></span>
+        Available for Work
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><span class="stat-num">6</span><div class="stat-lbl">Years Islamic Studies</div></div>
+    <div class="stat-item"><span class="stat-num">9+</span><div class="stat-lbl">Live Projects</div></div>
+    <div class="stat-item"><span class="stat-num">10+</span><div class="stat-lbl">Skills</div></div>
+    <div class="stat-item"><span class="stat-num">∞</span><div class="stat-lbl">Passion to Learn</div></div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="max-w">
+    <p class="section-tag">What I Bring</p>
+    <h2 class="section-h2">Skills & Expertise</h2>
+    <div class="section-line"></div>
+    <div class="skills-wrap">
+
+      <div class="skill-card">
+        <div class="sk-icon ic-blue"><i class="fas fa-code" style="color:#fff"></i></div>
+        <h3>💻 Technical Skills</h3>
+        <div class="tags">
+          <span class="tag"><i class="fab fa-html5" style="color:#e44d26;font-size:1rem"></i> HTML5</span>
+          <span class="tag"><i class="fab fa-css3-alt" style="color:#2965f1;font-size:1rem"></i> CSS3</span>
+          <span class="tag"><i class="fab fa-js" style="color:#f7df1e;font-size:1rem;background:#323330;border-radius:3px;padding:1px 2px"></i> JavaScript</span>
+          <span class="tag"><i class="fas fa-mobile-screen-button" style="color:#06D6A0;font-size:1rem"></i> Responsive</span>
+          <span class="tag"><i class="fas fa-robot" style="color:#7B5EA7;font-size:1rem"></i> AI Tools</span>
+          <span class="tag"><i class="fab fa-github" style="color:#24292e;font-size:1rem"></i> GitHub</span>
+          <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" style="width:16px;height:16px"> Java</span>
+          <span class="tag"><i class="fas fa-palette" style="color:#FF6B9D;font-size:1rem"></i> Graphic Design</span>
+          <span class="tag"><i class="fas fa-bullhorn" style="color:#F4A825;font-size:1rem"></i> Digital Marketing</span>
+          <span class="tag"><i class="fas fa-pen-ruler" style="color:#00D4FF;font-size:1rem"></i> Web Design</span>
+          <span class="tag"><i class="fas fa-code" style="color:#06D6A0;font-size:1rem"></i> Web Development</span>
+          <span class="tag"><i class="fas fa-object-group" style="color:#a259ff;font-size:1rem"></i> UI/UX Design</span>
+          <span class="tag"><i class="fas fa-pen-nib" style="color:#F4A825;font-size:1rem"></i> Logo Design</span>
+          <span class="tag"><i class="fas fa-cloud" style="color:#00D4FF;font-size:1rem"></i> SaaS</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="sk-icon ic-gold"><i class="fas fa-star-and-crescent"></i></div>
+        <h3>🌙 Islamic Studies</h3>
+        <div class="tags">
+          <span class="tag" style="color:#b8860b;font-weight:600">📖 Tafseer Studies</span>
+          <span class="tag" style="color:#b8860b;font-weight:600">🕌 Seerat un Nabi ﷺ</span>
+          <span class="tag" style="color:#b8860b;font-weight:600">📜 Ahadees</span>
+          <span class="tag" style="color:#b8860b;font-weight:600">⚖️ Fiqh</span>
+          <span class="tag" style="color:#b8860b;font-weight:600">✍️ Islamic Writing</span>
+          <span class="tag" style="color:#b8860b;font-weight:600">🎓 Dars-e-Nizami (6yr)</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="max-w">
+    <p class="section-tag">My Work</p>
+    <h2 class="section-h2">Featured Projects</h2>
+    <div class="section-line"></div>
+    <div class="proj-grid">
+
+      <div class="proj-card card-nexus">
+        <div class="proj-thumb">
+          <img src="nexus.jpg" alt="Nexus Project">
+          <span class="proj-liveTag">● LIVE</span>
+        </div>
+        <div class="proj-body">
+          <p class="proj-cat">SaaS Platform</p>
+          <h3>Nexus — AI Business Toolkit</h3>
+          <p>AI-powered freelance business platform with Invoice Generator, Client Management, and Smart Expense Tracker. Built with Firebase & Vercel.</p>
+          <div class="proj-links">
+            <a href="https://my-website-chi-ivory.vercel.app" target="_blank" class="pl pl-demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/asma-umar-dev" target="_blank" class="pl pl-gh">🐙 GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card card-khulafa">
+        <div class="proj-thumb">
+          <img src="khulafa.jpg" alt="Khulafa e Rashideen">
+          <span class="proj-liveTag">● LIVE</span>
+        </div>
+        <div class="proj-body">
+          <p class="proj-cat">Islamic Educational Website</p>
+          <h3>Khulafa e Rashideen</h3>
+          <p>Beautiful Islamic educational website about the Rightly-Guided Caliphs — combining deep Islamic scholarship with modern web development.</p>
+          <div class="proj-links">
+            <a href="https://asma-umar-dev.github.io/My-Website-The-Khulafa-e-Rashideen/" target="_blank" class="pl pl-demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/asma-umar-dev" target="_blank" class="pl pl-gh">🐙 GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card card-weather">
+        <div class="proj-thumb">
+          <img src="weather.jpg" alt="Weather App">
+          <span class="proj-liveTag">● LIVE</span>
+        </div>
+        <div class="proj-body">
+          <p class="proj-cat">Weather Application</p>
+          <h3>Live Weather App</h3>
+          <p>A beautiful real-time weather app with city search, 7-day forecast, humidity, wind, pressure, UV index & animated weather icons. Built with OpenWeather API.</p>
+          <div class="proj-links">
+            <a href="https://asma-umar-dev.github.io/Weather-app/" target="_blank" class="pl pl-demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/asma-umar-dev" target="_blank" class="pl pl-gh"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card card-clock">
+        <div class="proj-thumb">
+          <img src="clock.jpg" alt="Digital Clock">
+          <span class="proj-liveTag">● LIVE</span>
+        </div>
+        <div class="proj-body">
+          <p class="proj-cat">JavaScript Project</p>
+          <h3>Live Digital Clock</h3>
+          <p>A sleek real-time digital clock with live seconds progress bar, date & day display, AM/PM toggle, and timezone support. Built with pure HTML, CSS & JavaScript.</p>
+          <div class="proj-links">
+            <a href="https://asma-umar-dev.github.io/Digital-clock/" target="_blank" class="pl pl-demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/asma-umar-dev" target="_blank" class="pl pl-gh"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card card-calc">
+        <div class="proj-thumb">
+          <img src="calculator.jpg" alt="Calculator">
+          <span class="proj-liveTag">● LIVE</span>
+        </div>
+        <div class="proj-body">
+          <p class="proj-cat">JavaScript Project</p>
+          <h3>Modern Calculator</h3>
+          <p>A beautiful calculator app with clean UI, AC/+−/% functions, and smooth button interactions. Built with pure HTML, CSS & JavaScript.</p>
+          <div class="proj-links">
+            <a href="https://asma-umar-dev.github.io/Calculator/" target="_blank" class="pl pl-demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/asma-umar-dev" target="_blank" class="pl pl-gh"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card card-quote">
+        <div class="proj-thumb">
+          <img src="quote.jpg" alt="Random Quote Generator">
+          <span class="proj-liveTag">● LIVE</span>
+        </div>
+        <div class="proj-body">
+          <p class="proj-cat">JavaScript Project</p>
+          <h3>Random Quote Generator</h3>
+          <p>An inspiring quote generator with beautiful nature background. Displays random motivational quotes by famous personalities with smooth transitions.</p>
+          <div class="proj-links">
+            <a href="https://asma-umar-dev.github.io/Quote/" target="_blank" class="pl pl-demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/asma-umar-dev" target="_blank" class="pl pl-gh"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card card-study">
+        <div class="proj-thumb">
+          <img src="smartstudy.jpg" alt="Smart Study">
+          <span class="proj-liveTag">● LIVE</span>
+        </div>
+        <div class="proj-body">
+          <p class="proj-cat">Study Planner App</p>
+          <h3>LearnFlow — Smart Study</h3>
+          <p>A full-featured study planner with Pomodoro timer, subject tracking, goals, exam countdown, analytics, and daily motivation. Built with HTML, CSS & JavaScript.</p>
+          <div class="proj-links">
+            <a href="https://asma-umar-dev.github.io/Smart-study/" target="_blank" class="pl pl-demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/asma-umar-dev" target="_blank" class="pl pl-gh"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card card-career">
+        <div class="proj-thumb">
+          <img src="careerflow.jpg" alt="CareerFlow">
+          <span class="proj-liveTag">● LIVE</span>
+        </div>
+        <div class="proj-body">
+          <p class="proj-cat">Career Management App</p>
+          <h3>CareerFlow — Job Tracker</h3>
+          <p>A professional job application workspace with dashboard, analytics, calendar, interview scheduler, and application status tracking. Built with HTML, CSS & JavaScript.</p>
+          <div class="proj-links">
+            <a href="https://asma-umar-dev.github.io/Career-Flow/" target="_blank" class="pl pl-demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/asma-umar-dev" target="_blank" class="pl pl-gh"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card card-luxe">
+        <div class="proj-thumb">
+          <img src="luxecart.jpg" alt="LuxeCart">
+          <span class="proj-liveTag">● LIVE</span>
+        </div>
+        <div class="proj-body">
+          <p class="proj-cat">E-Commerce Website</p>
+          <h3>LuxeCart — Beauty Store</h3>
+          <p>A premium beauty & style e-commerce website with product catalog, categories, new arrivals, wishlist, and shopping cart. Built with HTML, CSS & JavaScript.</p>
+          <div class="proj-links">
+            <a href="https://asma-umar-dev.github.io/Luxe-Cart/" target="_blank" class="pl pl-demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/asma-umar-dev" target="_blank" class="pl pl-gh"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      
+
+      
+
+      
+
+      <div class="proj-card card-todo">
+        <div class="proj-thumb">
+          <img src="todo.jpg" alt="TaskFlow To-Do App">
+          <span class="proj-liveTag">● LIVE</span>
+        </div>
+        <div class="proj-body">
+          <p class="proj-cat">Productivity App</p>
+          <h3>TaskFlow — Smart To-Do App</h3>
+          <p>A beautiful task management app with categories, priority levels, analytics, progress tracking, dark mode, and motivational dashboard. Built with HTML, CSS & JS.</p>
+          <div class="proj-links">
+            <a href="https://asma-umar-dev.github.io/To-do-app/" target="_blank" class="pl pl-demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/asma-umar-dev" target="_blank" class="pl pl-gh"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="max-w">
+    <p class="section-tag">My Writing</p>
+    <h2 class="section-h2">Articles & Blog Posts</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="blogTrack">
+      <a href="https://www.linkedin.com/pulse/5-mistakes-i-made-while-learning-web-development-asma-umar-zpfoc" target="_blank" class="mq-card">
+        <div class="mq-img"><img src="blog1.jpg" alt="5 Mistakes"></div>
+        <div class="mq-body">
+          <span class="mq-tag"><i class="fab fa-linkedin-in"></i> LinkedIn</span>
+          <h4>5 Mistakes I Made While Learning Web Development</h4>
+          <p>Lessons about Tutorials, Projects, Errors, Consistency & Focus.</p>
+          <span class="mq-btn">Read Article →</span>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/pulse/from-i-cant-do-becoming-ai-powered-web-developer-asma-umar-aflwc" target="_blank" class="mq-card">
+        <div class="mq-img"><img src="blog2.jpg" alt="AI Developer"></div>
+        <div class="mq-body">
+          <span class="mq-tag"><i class="fab fa-linkedin-in"></i> LinkedIn</span>
+          <h4>From "I Can't Do It" to AI-Powered Web Developer</h4>
+          <p>How Learning with AI Changed My Coding Journey.</p>
+          <span class="mq-btn">Read Article →</span>
+        </div>
+      </a>
+      <!-- duplicate for seamless loop -->
+      <a href="https://www.linkedin.com/pulse/5-mistakes-i-made-while-learning-web-development-asma-umar-zpfoc" target="_blank" class="mq-card">
+        <div class="mq-img"><img src="blog1.jpg" alt="5 Mistakes"></div>
+        <div class="mq-body">
+          <span class="mq-tag"><i class="fab fa-linkedin-in"></i> LinkedIn</span>
+          <h4>5 Mistakes I Made While Learning Web Development</h4>
+          <p>Lessons about Tutorials, Projects, Errors, Consistency & Focus.</p>
+          <span class="mq-btn">Read Article →</span>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/pulse/from-i-cant-do-becoming-ai-powered-web-developer-asma-umar-aflwc" target="_blank" class="mq-card">
+        <div class="mq-img"><img src="blog2.jpg" alt="AI Developer"></div>
+        <div class="mq-body">
+          <span class="mq-tag"><i class="fab fa-linkedin-in"></i> LinkedIn</span>
+          <h4>From "I Can't Do It" to AI-Powered Web Developer</h4>
+          <p>How Learning with AI Changed My Coding Journey.</p>
+          <span class="mq-btn">Read Article →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="max-w">
+    <p class="section-tag">My Credentials</p>
+    <h2 class="section-h2">Certifications & Awards</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="certTrack">
+      <a href="https://www.freecodecamp.org/certification/fcc-a2bcbc1d-3942-47ee-9609-799833c71006/responsive-web-design-v9" target="_blank" class="mq-card">
+        <div class="mq-img"><img src="fcc-cert.jpg" alt="FCC Certificate"></div>
+        <div class="mq-body">
+          <span class="mq-tag" style="background:rgba(198,83,0,0.2);color:#f4722b">🏆 freeCodeCamp</span>
+          <h4>Responsive Web Design Certification</h4>
+          <p>May 16, 2026 · ~300 hours · HTML5, CSS3, Flexbox, Grid</p>
+          <span class="mq-btn">Verify Certificate →</span>
+        </div>
+      </a>
+      <div class="mq-card" style="cursor:default">
+        <div class="mq-img"><img src="sanad.png" alt="Sanad e Imtiyaz"></div>
+        <div class="mq-body">
+          <span class="mq-tag" style="background:rgba(244,168,37,0.15);color:var(--gold)">🌟 Islamic Award</span>
+          <h4>سند اِمتیاز — Dars-e-Nizami</h4>
+          <p>Jamia Arabia Dar-ut-Tarteel, Bahawalpur · 6 Years · With Distinction</p>
+          <span class="mq-btn" style="opacity:.6">Academic Excellence</span>
+        </div>
+      </div>
+      <!-- duplicates -->
+      <a href="https://www.freecodecamp.org/certification/fcc-a2bcbc1d-3942-47ee-9609-799833c71006/responsive-web-design-v9" target="_blank" class="mq-card">
+        <div class="mq-img"><img src="fcc-cert.jpg" alt="FCC Certificate"></div>
+        <div class="mq-body">
+          <span class="mq-tag" style="background:rgba(198,83,0,0.2);color:#f4722b">🏆 freeCodeCamp</span>
+          <h4>Responsive Web Design Certification</h4>
+          <p>May 16, 2026 · ~300 hours · HTML5, CSS3, Flexbox, Grid</p>
+          <span class="mq-btn">Verify Certificate →</span>
+        </div>
+      </a>
+      <div class="mq-card" style="cursor:default">
+        <div class="mq-img"><img src="sanad.png" alt="Sanad e Imtiyaz"></div>
+        <div class="mq-body">
+          <span class="mq-tag" style="background:rgba(244,168,37,0.15);color:var(--gold)">🌟 Islamic Award</span>
+          <h4>سند اِمتیاز — Dars-e-Nizami</h4>
+          <p>Jamia Arabia Dar-ut-Tarteel, Bahawalpur · 6 Years · With Distinction</p>
+          <span class="mq-btn" style="opacity:.6">Academic Excellence</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="max-w">
+    <p class="section-tag">Get In Touch</p>
+    <h2 class="section-h2">Let's Work Together</h2>
+    <div class="section-line"></div>
+    <div class="contact-grid">
+
+      <!-- Left: Info -->
+      <div class="contact-left">
+        <h3>I'd love to hear from you!</h3>
+        <p>Whether you need a website, graphic design, Islamic content writing, or want to collaborate on something meaningful — I'm ready!</p>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/asma-umar-11a9983b9" target="_blank" class="soc s-li">🔗 LinkedIn</a>
+          <a href="https://github.com/asma-umar-dev" target="_blank" class="soc s-gh">🐙 GitHub</a>
+          <a href="https://www.instagram.com/bint_e_adam_44881" target="_blank" class="soc s-ig">📸 Instagram</a>
+          <a href="https://www.facebook.com/share/1BqMKAmdFT/" target="_blank" class="soc s-fb">📘 Facebook</a>
+          <a href="https://wa.me/923087166250" target="_blank" class="soc s-wa">💬 WhatsApp</a>
+          <a href="https://www.fiverr.com/s/2K330p4" target="_blank" class="soc s-fv">🎯 Fiverr</a>
+        </div>
+        <div class="hire-info">
+          <div class="avail-pill-lg"><span class="avail-dot"></span> Available for Work</div>
+          <h4>Hire Me For</h4>
+          <div class="svc"><span class="svc-arrow">&#9657;</span>Website Development (HTML, CSS, JS)</div>
+          <div class="svc"><span class="svc-arrow">&#9657;</span>Responsive &amp; Mobile-First Design</div>
+          <div class="svc"><span class="svc-arrow">&#9657;</span>Graphic Design &amp; Branding</div>
+          <div class="svc"><span class="svc-arrow">&#9657;</span>Islamic Content Writing</div>
+          <div class="svc"><span class="svc-arrow">&#9657;</span>Digital Marketing &amp; Social Media</div>
+          <div class="svc"><span class="svc-arrow">&#9657;</span>Educational Website Development</div>
+          <div class="svc"><span class="svc-arrow">&#9657;</span>AI-Assisted Projects</div>
+          <button onclick="
+  var u='binteumar7595';var d='gmail.com';
+  var email=u+'@'+d;
+  var gmailUrl='https://mail.google.com/mail/?view=cm&to='+email;
+  var w=window.open(gmailUrl,'_blank');
+  if(!w||w.closed||typeof w.closed=='undefined'){
+    window.location.href='mailto:'+email;
+  }
+" style="display:block;width:100%;text-align:center;margin-top:1.5rem;background:linear-gradient(135deg,#F4A825,#e8960f);color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:.92rem;box-shadow:0 4px 18px rgba(244,168,37,0.4);border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 26px rgba(244,168,37,0.55)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 18px rgba(244,168,37,0.4)'">✉️ Send Email</button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="logo.jpg" alt="Logo">
+    <span>Asma Umar</span>
+  </div>
+  <p class="footer-arabic">جَزَاكُمُ اللّٰهُ خَيْرًا</p>
+  <p>Designed & Built with 💙 by <strong style="color:#fff">Asma Umar</strong> · 2026</p>
+  <p style="margin-top:.4rem;font-size:.76rem"><a href="#" class="obf-email" data-update-text="true">✉️ Send Email</a></p>
+</footer>
+
+<script>
+// ── Smooth scroll function ──
+function smoothScroll(id) {
+  var el = document.getElementById(id);
+  if (el) {
+    var top = el.getBoundingClientRect().top + window.pageYOffset - 65;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  }
+}
+
+// ── Nav links smooth scroll ──
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var href = this.getAttribute('href');
+    if(href && href.startsWith('#') && href.length > 1){
+      var id = href.slice(1);
+      var target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        e.stopPropagation();
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    }
+  });
+});
+
+// ── Typing animation ──
+var roles = [
+  "Web Developer",
+  "Graphic Designer",
+  "Islamic Scholar",
+  "AI-Powered Creator",
+  "Frontend Developer",
+  "Digital Marketer"
+];
+var ri = 0, ci = 0, deleting = false;
+var el = document.getElementById("typed-text");
+
+function type() {
+  var word = roles[ri];
+  if (!deleting) {
+    el.textContent = word.slice(0, ++ci);
+    if (ci === word.length) { deleting = true; setTimeout(type, 1800); return; }
+  } else {
+    el.textContent = word.slice(0, --ci);
+    if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
+  }
+  setTimeout(type, deleting ? 60 : 90);
+}
+type();
+
+// ── Contact form → mailto ──
+function sendEmail() {
+  var name    = document.getElementById('fname').value.trim();
+  var email   = document.getElementById('femail').value.trim();
+  var message = document.getElementById('fmsg').value.trim();
+  var status  = document.getElementById('form-status');
+
+  if (!name || !email || !message) {
+    status.className = 'form-status error';
+    status.textContent = '⚠️ Please fill in all fields.';
+    status.style.display = 'block';
+    return;
+  }
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    status.className = 'form-status error';
+    status.textContent = '⚠️ Please enter a valid email address.';
+    status.style.display = 'block';
+    return;
+  }
+
+  var subject  = encodeURIComponent("Portfolio Contact from " + name);
+  var body     = encodeURIComponent(
+    "Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message
+  );
+  var u='binteumar7595';var d='gmail.com';
+  var mailto = 'mailto:'+u+'@'+d+'?subject='+subject+'&body='+body;
+
+  window.location.href = mailto;
+
+  status.className = 'form-status success';
+  status.textContent = '✅ JazakAllah Khair! Your email app will open now.';
+  status.style.display = 'block';
+}
+</script>
+<script>
+  function setupEmail() {
+    var u = "binteumar7595";
+    var d = "gmail.com";
+    var fullEmail = u + "@" + d;
+    var emailLinks = document.querySelectorAll('.obf-email');
+    emailLinks.forEach(function(link) {
+      link.href = "mailto:" + fullEmail;
+      if(link.getAttribute('data-update-text') === 'true') {
+        link.innerHTML = "✉️ Send Email";
+      }
+    });
+  }
+  window.addEventListener('DOMContentLoaded', setupEmail);
+</script>
+</body>
+</html>
