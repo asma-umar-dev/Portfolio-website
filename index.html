@@ -15,9 +15,33 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;background:var(--white);color:var(--dark);overflow-x:hidden}
+body{
+  font-family:'Poppins',sans-serif;
+  color:var(--dark);
+  overflow-x:hidden;
+  background: linear-gradient(
+    135deg,
+    #fdfaf0 0%,
+    #fef9e7 15%,
+    #fdfaf5 30%,
+    #fff8e1 45%,
+    #fdf6e3 60%,
+    #fefce8 75%,
+    #fdfaf0 90%,
+    #fff9e6 100%
+  );
+  background-size:400% 400%;
+  animation:bgShimmer 8s ease-in-out infinite;
+}
+@keyframes bgShimmer{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-thumb{background:linear-gradient(var(--teal),var(--aqua));border-radius:3px}
+
+
 
 /* ══ NAV ══ */
 nav{
@@ -185,30 +209,67 @@ section{padding:80px 5%}
 .max-w{max-width:1100px;margin:0 auto}
 
 /* ══ SKILLS ══ */
-#skills{background:linear-gradient(160deg,#f0fafa 0%,#e8f4f8 100%)}
-.skills-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem}
-.skill-card{
-  border-radius:22px;padding:2rem 1.8rem;
-  position:relative;overflow:hidden;
-  text-align:center;
-  transition:transform .3s,box-shadow .3s;
+#skills{
+  background:linear-gradient(135deg,#f8f4e8 0%,#fdf6e3 30%,#f5ede0 60%,#fdf0d5 100%);
+  position:relative;
+  overflow:hidden;
 }
-.skill-card .sk-icon{margin:0 auto .8rem}
-.skill-card:hover{transform:translateY(-8px)}
+#skills::before{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 40% 30% at 20% 20%, rgba(255,220,120,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 40% at 80% 70%, rgba(255,200,80,0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 30% at 50% 50%, rgba(255,240,180,0.15) 0%, transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
+#skills .max-w{position:relative;z-index:1}
+#skills .section-h2{color:#3a2a0a}
+#skills .section-tag{color:#b8860b}
+#skills .section-line{background:linear-gradient(90deg,#c8960a,#f4d03f)}
+.skills-wrap{
+  display:flex;
+  gap:2rem;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.skill-card{
+  border-radius:50%;
+  width:450px;
+  height:450px;
+  padding:3rem 3rem;
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transition:transform .4s,box-shadow .4s;
+  flex-shrink:0;
+}
+.skill-card .sk-icon{margin:0 auto .7rem}
+.skill-card:hover{transform:scale(1.05)}
+
+@media(max-width:768px){
+  .skill-card{
+    width:90vw !important;
+    height:auto !important;
+    border-radius:24px !important;
+    padding:1.8rem 1.5rem !important;
+  }
+  .tags{justify-content:flex-start}
+}
 
 /* Card 1 - Technical: Deep teal to aqua */
 .skill-card:nth-child(1){
   background:linear-gradient(135deg,#071E26 0%,#0D5C6E 50%,#0A3D4F 100%);
-  border:1.5px solid rgba(0,212,255,0.25);
-  box-shadow:0 4px 30px rgba(0,212,255,0.15),0 0 60px rgba(0,212,255,0.05);
-}
-.skill-card:nth-child(1)::before{
-  content:'';position:absolute;top:-40px;right:-40px;
-  width:150px;height:150px;border-radius:50%;
-  background:radial-gradient(circle,rgba(0,212,255,0.15),transparent 70%);
+  border:3px solid rgba(0,212,255,0.3);
+  box-shadow:0 0 40px rgba(0,212,255,0.2),0 0 80px rgba(0,212,255,0.08);
 }
 .skill-card:nth-child(1):hover{
-  box-shadow:0 12px 50px rgba(0,212,255,0.3),0 0 80px rgba(0,212,255,0.1);
+  box-shadow:0 0 60px rgba(0,212,255,0.4),0 0 100px rgba(0,212,255,0.15);
 }
 .skill-card:nth-child(1) h3{color:#fff}
 .skill-card:nth-child(1) .tag{
@@ -223,16 +284,11 @@ section{padding:80px 5%}
 /* Card 2 - Islamic: Deep purple-gold */
 .skill-card:nth-child(2){
   background:linear-gradient(135deg,#1a0a2e 0%,#2d1055 50%,#1a0a2e 100%);
-  border:1.5px solid rgba(244,168,37,0.3);
-  box-shadow:0 4px 30px rgba(244,168,37,0.12),0 0 60px rgba(123,94,167,0.08);
-}
-.skill-card:nth-child(2)::before{
-  content:'';position:absolute;top:-40px;right:-40px;
-  width:150px;height:150px;border-radius:50%;
-  background:radial-gradient(circle,rgba(244,168,37,0.2),transparent 70%);
+  border:3px solid rgba(244,168,37,0.35);
+  box-shadow:0 0 40px rgba(244,168,37,0.18),0 0 80px rgba(123,94,167,0.1);
 }
 .skill-card:nth-child(2):hover{
-  box-shadow:0 12px 50px rgba(244,168,37,0.25),0 0 80px rgba(123,94,167,0.15);
+  box-shadow:0 0 60px rgba(244,168,37,0.35),0 0 100px rgba(123,94,167,0.2);
 }
 .skill-card:nth-child(2) h3{color:#fff}
 .skill-card:nth-child(2) .tag{
@@ -371,7 +427,7 @@ section{padding:80px 5%}
 
 /* ══ CONTACT ══ */
 #contact{background:var(--white)}
-.contact-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:start;max-width:600px;margin:0 auto}
+
 .contact-left h3{font-size:1.3rem;color:var(--dark);margin-bottom:.8rem;font-weight:700}
 .contact-left p{font-size:.9rem;color:#4a6b74;line-height:1.75;margin-bottom:1.5rem}
 .cinfo{display:flex;align-items:center;gap:.8rem;margin-bottom:.9rem;font-size:.88rem;color:var(--dark);font-weight:500}
@@ -519,6 +575,35 @@ section{padding:80px 5%}
 }
 .cert-meta i{color:var(--gold);font-size:.8rem}
 
+/* ══ SKILLS SPARKLE ══ */
+@keyframes shimmer{
+  0%{transform:translateX(-100%) rotate(45deg)}
+  100%{transform:translateX(300%) rotate(45deg)}
+}
+@keyframes sparkle{
+  0%,100%{opacity:0;transform:scale(0) rotate(0deg)}
+  50%{opacity:1;transform:scale(1) rotate(180deg)}
+}
+.spark{
+  position:absolute;
+  pointer-events:none;
+  z-index:1;
+}
+.spark::before{
+  content:'✦';
+  font-size:1rem;
+  color:rgba(200,150,10,0.6);
+  animation:sparkle 3s ease-in-out infinite;
+}
+.spark:nth-child(1){top:10%;left:5%;animation-delay:0s}
+.spark:nth-child(2){top:20%;left:90%;animation-delay:.5s}
+.spark:nth-child(3){top:70%;left:8%;animation-delay:1s}
+.spark:nth-child(4){top:80%;left:85%;animation-delay:1.5s}
+.spark:nth-child(5){top:40%;left:95%;animation-delay:2s}
+.spark:nth-child(6){top:50%;left:2%;animation-delay:2.5s}
+.spark:nth-child(7){top:90%;left:50%;animation-delay:.8s}
+.spark:nth-child(8){top:5%;left:50%;animation-delay:1.8s}
+
 /* ══ MARQUEE ══ */
 /* ── MOBILE: marquee scroll ── */
 .marquee-wrap{
@@ -657,6 +742,95 @@ section{padding:80px 5%}
 }
 .blog-read:hover{background:#0077B5;color:#fff}
 
+/* ══ ORBIT ══ */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:start;
+}
+.contact-left h3{font-size:1.3rem;color:var(--dark);margin-bottom:.8rem;font-weight:700}
+.contact-left > p{font-size:.9rem;color:#4a6b74;line-height:1.75;margin-bottom:1.8rem}
+.mobile-socials{display:none}
+@media(max-width:768px){
+  .contact-grid{grid-template-columns:1fr}
+  .orbit-wrap{
+    display:flex !important;
+    width:300px !important;
+    height:300px !important;
+    margin:1.5rem auto !important;
+  }
+  .orbit-logo{width:150px !important;height:150px !important}
+  .orbit-ring{display:block !important;animation:orbitSpin 10s linear infinite !important}
+  .orbit-icon{width:38px !important;height:38px !important;font-size:.9rem !important}
+  .oi-1{top:11px !important;left:131px !important}
+  .oi-2{top:71px !important;left:235px !important}
+  .oi-3{top:191px !important;left:235px !important}
+  .oi-4{top:251px !important;left:131px !important}
+  .oi-5{top:191px !important;left:27px !important}
+  .oi-6{top:71px !important;left:27px !important}
+  .mobile-socials{display:none !important}
+}
+
+/* Orbit container */
+.orbit-wrap{
+  position:relative;
+  width:420px;height:420px;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* Center logo */
+.orbit-logo{
+  position:relative;z-index:2;
+  width:220px;height:220px;border-radius:50%;
+  overflow:hidden;
+  border:3px solid rgba(0,212,255,0.4);
+  box-shadow:0 0 40px rgba(0,212,255,0.25), 0 0 80px rgba(0,212,255,0.1);
+}
+.orbit-logo img{width:100%;height:100%;object-fit:cover}
+
+/* Orbit ring — rotates continuously */
+.orbit-ring{
+  position:absolute;inset:0;
+  animation:orbitSpin 10s linear infinite;
+}
+@keyframes orbitSpin{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+/* Each icon positioned on the ring */
+.orbit-icon{
+  position:absolute;
+  width:46px;height:46px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:1.1rem;
+  text-decoration:none;
+  box-shadow:0 4px 15px rgba(0,0,0,0.3);
+  /* counter-rotate so icons stay upright */
+  animation:orbitCounter 10s linear infinite;
+  transition:transform .2s,box-shadow .2s;
+}
+.orbit-icon:hover{
+  transform:rotate(0deg) scale(1.2) !important;
+  box-shadow:0 6px 20px rgba(0,0,0,0.4);
+  animation-play-state:paused;
+}
+@keyframes orbitCounter{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(-360deg)}
+}
+
+/* Position each icon evenly around circle (6 icons = 60deg apart) */
+/* radius = 130px from center, center of wrap = 160px */
+.oi-1{background:#0077B5;top:12px;left:187px}
+.oi-2{background:#24292e;top:100px;left:35px}
+.oi-3{background:linear-gradient(45deg,#f09433,#dc2743,#bc1888);top:274px;left:35px}
+.oi-4{background:#1877F2;top:362px;left:187px}
+.oi-5{background:#25D366;top:275px;left:339px}
+.oi-6{background:#1DBF73;top:100px;left:339px}
+
 /* ══ FOOTER ══ */
 footer{background:var(--dark);color:rgba(255,255,255,.55);text-align:center;padding:2rem 5%;border-top:1px solid rgba(0,212,255,0.08)}
 .footer-logo{display:flex;align-items:center;justify-content:center;gap:.7rem;margin-bottom:1rem}
@@ -757,6 +931,7 @@ footer a{color:var(--aqua);text-decoration:none}
 </head>
 <body>
 
+
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
@@ -836,6 +1011,14 @@ footer a{color:var(--aqua);text-decoration:none}
 
 <!-- SKILLS -->
 <section id="skills">
+  <span class="spark"></span>
+  <span class="spark"></span>
+  <span class="spark"></span>
+  <span class="spark"></span>
+  <span class="spark"></span>
+  <span class="spark"></span>
+  <span class="spark"></span>
+  <span class="spark"></span>
   <div class="max-w">
     <p class="section-tag">What I Bring</p>
     <h2 class="section-h2">Skills & Expertise</h2>
@@ -1161,13 +1344,31 @@ footer a{color:var(--aqua);text-decoration:none}
     <p class="section-tag">Get In Touch</p>
     <h2 class="section-h2">Let's Work Together</h2>
     <div class="section-line"></div>
+
     <div class="contact-grid">
 
-      <!-- Left: Info -->
+      <!-- Left: Text + Orbit Logo + Social -->
       <div class="contact-left">
         <h3>I'd love to hear from you!</h3>
         <p>Whether you need a website, graphic design, Islamic content writing, or want to collaborate on something meaningful — I'm ready!</p>
-        <div class="socials">
+
+        <!-- Orbit Logo + Social — desktop only -->
+        <div class="orbit-wrap">
+          <div class="orbit-logo">
+            <img src="logo.jpg" alt="Asma Umar">
+          </div>
+          <div class="orbit-ring">
+            <a href="https://www.linkedin.com/in/asma-umar-11a9983b9" target="_blank" class="orbit-icon oi-1" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/asma-umar-dev" target="_blank" class="orbit-icon oi-2" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/bint_e_adam_44881" target="_blank" class="orbit-icon oi-3" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1BqMKAmdFT/" target="_blank" class="orbit-icon oi-4" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/923087166250" target="_blank" class="orbit-icon oi-5" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.fiverr.com/s/2K330p4" target="_blank" class="orbit-icon oi-6" title="Fiverr"><span style="font-size:.75rem;font-weight:900">F</span></a>
+          </div>
+        </div>
+
+        <!-- Mobile: simple social buttons -->
+        <div class="socials mobile-socials">
           <a href="https://www.linkedin.com/in/asma-umar-11a9983b9" target="_blank" class="soc s-li">🔗 LinkedIn</a>
           <a href="https://github.com/asma-umar-dev" target="_blank" class="soc s-gh">🐙 GitHub</a>
           <a href="https://www.instagram.com/bint_e_adam_44881" target="_blank" class="soc s-ig">📸 Instagram</a>
@@ -1175,6 +1376,10 @@ footer a{color:var(--aqua);text-decoration:none}
           <a href="https://wa.me/923087166250" target="_blank" class="soc s-wa">💬 WhatsApp</a>
           <a href="https://www.fiverr.com/s/2K330p4" target="_blank" class="soc s-fv">🎯 Fiverr</a>
         </div>
+      </div>
+
+      <!-- Right: Hire Me Card -->
+      <div class="contact-right">
         <div class="hire-info">
           <div class="avail-pill-lg"><span class="avail-dot"></span> Available for Work</div>
           <h4>Hire Me For</h4>
@@ -1185,18 +1390,9 @@ footer a{color:var(--aqua);text-decoration:none}
           <div class="svc"><span class="svc-arrow">&#9657;</span>Digital Marketing &amp; Social Media</div>
           <div class="svc"><span class="svc-arrow">&#9657;</span>Educational Website Development</div>
           <div class="svc"><span class="svc-arrow">&#9657;</span>AI-Assisted Projects</div>
-          <button onclick="
-  var u='binteumar7595';var d='gmail.com';
-  var email=u+'@'+d;
-  var gmailUrl='https://mail.google.com/mail/?view=cm&to='+email;
-  var w=window.open(gmailUrl,'_blank');
-  if(!w||w.closed||typeof w.closed=='undefined'){
-    window.location.href='mailto:'+email;
-  }
-" style="display:block;width:100%;text-align:center;margin-top:1.5rem;background:linear-gradient(135deg,#F4A825,#e8960f);color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:.92rem;box-shadow:0 4px 18px rgba(244,168,37,0.4);border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 26px rgba(244,168,37,0.55)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 18px rgba(244,168,37,0.4)'">✉️ Send Email</button>
+          <button onclick="(function(){var u='binteumar7595';var d='gmail.com';var w=window.open('https://mail.google.com/mail/?view=cm&to='+u+'@'+d,'_blank');if(!w||w.closed){window.location.href='mailto:'+u+'@'+d;}})()" style="display:block;width:100%;text-align:center;margin-top:1.5rem;background:linear-gradient(135deg,#F4A825,#e8960f);color:#fff;padding:14px;border-radius:30px;font-weight:700;font-size:.92rem;box-shadow:0 4px 18px rgba(244,168,37,0.4);border:none;cursor:pointer;">✉️ Send Email</button>
         </div>
       </div>
-
 
     </div>
   </div>
