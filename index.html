@@ -563,6 +563,13 @@ section{padding:80px 5%}
 .mq-body p{font-size:.78rem;color:#4a6b74;line-height:1.55;margin-bottom:.8rem}
 .mq-btn{font-size:.75rem;font-weight:700;color:var(--teal2);display:inline-flex;align-items:center;gap:.3rem}
 
+/* ── DESKTOP logo size ── */
+@media(min-width:769px){
+  .logo-ring{width:380px !important;height:380px !important}
+  .logo-img{width:350px !important;height:350px !important}
+  .avail-pill{font-size:.9rem !important;padding:11px 26px !important}
+}
+
 /* ── DESKTOP: simple 2 cards side by side ── */
 @media(min-width:769px){
   .marquee-wrap{
@@ -662,8 +669,8 @@ footer a{color:var(--aqua);text-decoration:none}
 @media(max-width:768px){
   .nav-links{display:none}
   .contact-grid{grid-template-columns:1fr}
-  .logo-ring{width:220px;height:220px}
-  .logo-img{width:196px;height:196px}
+  .logo-ring{width:220px !important;height:220px !important}
+  .logo-img{width:196px !important;height:196px !important}
   .hero-inner{
     display:flex !important;
     flex-direction:column !important;
