@@ -466,7 +466,15 @@ section{padding:80px 5%}
 .form-status.error{background:rgba(255,100,100,0.1);border:1px solid rgba(255,100,100,0.4);color:#ff8080}
 
 /* ══ CERTIFICATIONS ══ */
-#certifications{background:linear-gradient(160deg,#f0fafa 0%,var(--white) 100%)}
+#certifications{background:linear-gradient(135deg,#071E26 0%,#0A2E38 50%,#071E26 100%)}
+#certifications .section-h2{color:#fff}
+#certifications .section-tag{color:var(--aqua)}
+#certifications .section-line{background:linear-gradient(90deg,var(--aqua),var(--gold))}
+#certifications .mq-card{background:rgba(255,255,255,0.06)!important;border-color:rgba(0,212,255,0.2)!important}
+#certifications .mq-card:hover{background:rgba(255,255,255,0.1)!important;border-color:rgba(0,212,255,0.4)!important}
+#certifications .mq-body h4{color:#fff!important}
+#certifications .mq-body p{color:rgba(255,255,255,0.7)!important}
+#certifications .mq-btn{color:var(--aqua)!important}
 .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
 .cert-card{
   border-radius:20px;overflow:hidden;
@@ -512,6 +520,7 @@ section{padding:80px 5%}
 .cert-meta i{color:var(--gold);font-size:.8rem}
 
 /* ══ MARQUEE ══ */
+/* ── MOBILE: marquee scroll ── */
 .marquee-wrap{
   overflow:hidden;
   padding:1rem 0 2rem;
@@ -529,20 +538,16 @@ section{padding:80px 5%}
   100%{transform:translateX(-50%)}
 }
 .mq-card{
-  flex-shrink:0;width:min(320px, 80vw);
+  flex-shrink:0;width:min(300px,80vw);
   border-radius:18px;overflow:hidden;
   background:#fff;
   border:1.5px solid rgba(13,92,110,0.1);
   box-shadow:0 4px 20px rgba(13,92,110,0.08);
   text-decoration:none;color:var(--dark);
-  transition:transform .25s,box-shadow .25s,border-color .25s;
+  transition:transform .3s,box-shadow .3s;
   display:block;
 }
-.mq-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 12px 35px rgba(13,92,110,0.15);
-  border-color:var(--teal2);
-}
+.mq-card:hover{transform:translateY(-6px);box-shadow:0 14px 35px rgba(13,92,110,0.16)}
 .mq-img{height:180px;overflow:hidden}
 .mq-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .mq-card:hover .mq-img img{transform:scale(1.06)}
@@ -556,16 +561,58 @@ section{padding:80px 5%}
 }
 .mq-body h4{font-size:.92rem;font-weight:700;color:var(--dark);margin-bottom:.4rem;line-height:1.4}
 .mq-body p{font-size:.78rem;color:#4a6b74;line-height:1.55;margin-bottom:.8rem}
-.mq-btn{
-  font-size:.75rem;font-weight:700;color:var(--teal2);
-  display:inline-flex;align-items:center;gap:.3rem;
+.mq-btn{font-size:.75rem;font-weight:700;color:var(--teal2);display:inline-flex;align-items:center;gap:.3rem}
+
+/* ── DESKTOP: simple 2 cards side by side ── */
+@media(min-width:769px){
+  .marquee-wrap{
+    overflow:visible;
+    padding:0 5% 3rem;
+    -webkit-mask:none;mask:none;
+  }
+  .marquee-track{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:2rem;
+    animation:none;
+    width:100%;
+    max-width:900px;
+    margin:0 auto;
+  }
+  /* hide duplicate cards on desktop */
+  .mq-dup{display:none !important}
+
+  .mq-card{
+    width:100%;
+    flex-shrink:unset;
+    border-radius:18px;
+    overflow:hidden;
+    background:#fff;
+    border:1.5px solid rgba(13,92,110,0.1);
+    box-shadow:0 4px 24px rgba(13,92,110,0.1);
+    transition:transform .3s,box-shadow .3s,border-color .3s;
+  }
+  .mq-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 14px 40px rgba(13,92,110,0.18);
+    border-color:var(--teal2);
+  }
+  /* show only front face content */
+
+  .mq-img{height:220px}
+  .mq-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .mq-card:hover .mq-img img{transform:scale(1.04)}
+  .mq-body{padding:1.5rem}
+  .mq-body h4{font-size:1rem;font-weight:700;color:var(--dark)}
+  .mq-body p{font-size:.82rem;color:#4a6b74}
+  .mq-btn{color:var(--teal2);font-weight:700;font-size:.8rem}
 }
 
 /* ══ BLOG ══ */
-#blog{background:var(--dark2)}
-#blog .section-h2{color:#fff}
-#blog .section-tag{color:var(--aqua)}
-#blog .section-line{background:linear-gradient(90deg,var(--aqua),var(--gold))}
+#blog{background:#ffffff}
+#blog .section-h2{color:var(--dark)}
+#blog .section-tag{color:var(--teal2)}
+#blog .section-line{background:linear-gradient(90deg,var(--teal2),var(--aqua))}
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
 .blog-card{
   border-radius:20px;overflow:hidden;
@@ -1031,8 +1078,7 @@ footer a{color:var(--aqua);text-decoration:none}
           <span class="mq-btn">Read Article →</span>
         </div>
       </a>
-      <!-- duplicate for seamless loop -->
-      <a href="https://www.linkedin.com/pulse/5-mistakes-i-made-while-learning-web-development-asma-umar-zpfoc" target="_blank" class="mq-card">
+      <a href="https://www.linkedin.com/pulse/5-mistakes-i-made-while-learning-web-development-asma-umar-zpfoc" target="_blank" class="mq-card mq-dup">
         <div class="mq-img"><img src="blog1.jpg" alt="5 Mistakes"></div>
         <div class="mq-body">
           <span class="mq-tag"><i class="fab fa-linkedin-in"></i> LinkedIn</span>
@@ -1041,7 +1087,7 @@ footer a{color:var(--aqua);text-decoration:none}
           <span class="mq-btn">Read Article →</span>
         </div>
       </a>
-      <a href="https://www.linkedin.com/pulse/from-i-cant-do-becoming-ai-powered-web-developer-asma-umar-aflwc" target="_blank" class="mq-card">
+      <a href="https://www.linkedin.com/pulse/from-i-cant-do-becoming-ai-powered-web-developer-asma-umar-aflwc" target="_blank" class="mq-card mq-dup">
         <div class="mq-img"><img src="blog2.jpg" alt="AI Developer"></div>
         <div class="mq-body">
           <span class="mq-tag"><i class="fab fa-linkedin-in"></i> LinkedIn</span>
@@ -1072,17 +1118,16 @@ footer a{color:var(--aqua);text-decoration:none}
           <span class="mq-btn">Verify Certificate →</span>
         </div>
       </a>
-      <div class="mq-card" style="cursor:default">
+      <div class="mq-card">
         <div class="mq-img"><img src="sanad.png" alt="Sanad e Imtiyaz"></div>
         <div class="mq-body">
           <span class="mq-tag" style="background:rgba(244,168,37,0.15);color:var(--gold)">🌟 Islamic Award</span>
           <h4>سند اِمتیاز — Dars-e-Nizami</h4>
           <p>Jamia Arabia Dar-ut-Tarteel, Bahawalpur · 6 Years · With Distinction</p>
-          <span class="mq-btn" style="opacity:.6">Academic Excellence</span>
+          <span class="mq-btn">Academic Excellence ✨</span>
         </div>
       </div>
-      <!-- duplicates -->
-      <a href="https://www.freecodecamp.org/certification/fcc-a2bcbc1d-3942-47ee-9609-799833c71006/responsive-web-design-v9" target="_blank" class="mq-card">
+      <a href="https://www.freecodecamp.org/certification/fcc-a2bcbc1d-3942-47ee-9609-799833c71006/responsive-web-design-v9" target="_blank" class="mq-card mq-dup">
         <div class="mq-img"><img src="fcc-cert.jpg" alt="FCC Certificate"></div>
         <div class="mq-body">
           <span class="mq-tag" style="background:rgba(198,83,0,0.2);color:#f4722b">🏆 freeCodeCamp</span>
@@ -1091,16 +1136,15 @@ footer a{color:var(--aqua);text-decoration:none}
           <span class="mq-btn">Verify Certificate →</span>
         </div>
       </a>
-      <div class="mq-card" style="cursor:default">
+      <div class="mq-card mq-dup">
         <div class="mq-img"><img src="sanad.png" alt="Sanad e Imtiyaz"></div>
         <div class="mq-body">
           <span class="mq-tag" style="background:rgba(244,168,37,0.15);color:var(--gold)">🌟 Islamic Award</span>
           <h4>سند اِمتیاز — Dars-e-Nizami</h4>
           <p>Jamia Arabia Dar-ut-Tarteel, Bahawalpur · 6 Years · With Distinction</p>
-          <span class="mq-btn" style="opacity:.6">Academic Excellence</span>
+          <span class="mq-btn">Academic Excellence ✨</span>
         </div>
-      </div>
-    </div>
+      </div></div>
   </div>
 </section>
 
